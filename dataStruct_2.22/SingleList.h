@@ -19,6 +19,9 @@ void InsertNodePre(NODE* Head, int data);
 //生成N的在链表上的结点
 void InitList(NODE* head, int n);
 
+//通过数组生成
+void InitListByGroup(NODE* head, int* src, int n);
+
 //找是否存在这个结点数据
 NODE* FindNode(NODE* head, int tarData);
 

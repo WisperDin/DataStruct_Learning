@@ -57,7 +57,26 @@ void InitList(NODE* head, int n)
 		InsertNodePre(head, i);
 	}
 }
+void InitListByGroup(NODE* head, int* src,int n)
+{
+	if (!head)
+	{
+		printf("null head");
+		return;
+	}
+	if (n <= 0)
+	{
+		printf("wrong with n");
+		return;
+	}
+	//尾插
+	NODE* currentNode = head;
+	for (int i = 0; i < n; i++)
+	{
+		currentNode = InsertNode(head, currentNode, src[i]);
+	}
 
+}
 //找是否存在这个结点数据
 NODE* FindNode(NODE* head, int tarData){
 	if (!head)
@@ -88,7 +107,7 @@ void PrintList(NODE* head){
 	printf("list length:%d\n", head->data);
 	while (currentNode != NULL)
 	{
-		printf("%d", currentNode->data);
+		printf("%d ", currentNode->data);
 		currentNode = currentNode->next;
 	}
 	printf("\n");
