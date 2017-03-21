@@ -128,8 +128,84 @@ void testP53_2(){
 }
 /////////////////////////////////////////////////////////////////////
 //读取算术表达式的后序表示形式
-void testP79(){
+#define N 5
+void testP79(int *result){
+	char src[N] = { '1', '2', '3', '*', '+' };
+	LiStack* head = InitStack();
+	for (size_t i = 0; i < N; i++)
+	{
+		if (src[i]>='0'&&src[i]<='9')//操作数
+		{
+			switch (src[i])
+			{
+			case '1':{
+				Push(head, 1);
+				break;
+				}
+			case '2':{
+				Push(head, 2);
+				break;
+			}
+			case '3':{
+				Push(head, 3);
+				break;
+			}
+			case '4':{
+				Push(head, 4);
+				break;
+			}
+			case '5':{
+				Push(head, 5);
+				break;
+			}
+			case '6':{
+				Push(head, 6);
+				break;
+			}
+			case '7':{
+				Push(head, 7);
+				break;
+			}
+			case '8':{
+				Push(head, 8);
+				break;
+			}
+			case '9':{
+				Push(head, 9);
+				break;
+			}
+			default:
+				break;
+			}
+		}
+		else//不是操作数，则是操作符
+		{
+			//定义两个操作数,并从出栈获得
+			int oper1 = 0, oper2 = 0;
+			oper1 = Pop(head);
+			oper2 = Pop(head);
+			if (oper1 == -1 || oper2 == -1)//其实用-1做异常标志有问题，因为比如一些数的+-*/有时候会产生负数，我们这里暂时只支持+，*并且原始数据为正整数
+			{
+				//异常
+				*result = -1;
+				return;
+			}
+			switch (src[i])
+			{
+			case '+':{
+				Push(head,oper1 + oper2);
+				break;
+			}
 
+			case '*':{
+				Push(head, oper1 * oper2);
+				break;
+			}
+
+			}
+		}
+	}
+	*result = Top(head);
 }
 void main(){
 
@@ -137,5 +213,8 @@ void main(){
 	//MakeTwList();
 	//MakeSingleList();
 
-	MakeListStack();
+	//MakeListStack();
+	int result = 0;
+	testP79(&result);
+	printf("result:%d", result);
 }
