@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TwoWay_List.h"
 #include "SingleList.h"
+#include "ListStack.h"
 void MakeTwList(){
 	TwNODE *head = CreateTwListHead();
 	InitTwList(head, 5);
@@ -16,6 +17,37 @@ void MakeSingleList(){
 	DelList_ALL(head);
 	//printf("%d", );
 }
+void MakeListStack(){
+	LiStack* head = InitStack();
+	/*
+	//测试在空表的情况下是否会出问题
+	printf("top:%d\n", Top(head));
+	printf("Pop:%d\n", Pop(head));
+	ReleaseStack(head);
+	*/
+	for (size_t i = 0; i < 4; i++)
+	{
+		Push(head, i);//0,1,2,3顺序入栈
+	}
+	printf("top:%d\n", Top(head));
+	printf("length:%d\n", head->data);
+	ShowInStack(head->next);//显示所有元素
+	//两个元素出栈
+	Pop(head);
+	Pop(head);
+	printf("top:%d\n", Top(head));
+	printf("length:%d\n", head->data);
+	ShowInStack(head->next);//显示所有元素
+
+	ReleaseStack(head);
+
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////习题内容
+//数据结构严蔚敏P53 第二题
 //将单链表转换成循环链表
 NODE* FindLastNodeToHead(NODE *head){
 	NODE* currentNode = head;
@@ -94,10 +126,16 @@ void testP53_2(){
 	PrintList(head3);
 	
 }
+/////////////////////////////////////////////////////////////////////
+//读取算术表达式的后序表示形式
+void testP79(){
+
+}
 void main(){
 
-	testP53_2();
+	//testP53_2();
 	//MakeTwList();
 	//MakeSingleList();
 
+	MakeListStack();
 }
