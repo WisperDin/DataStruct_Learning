@@ -2,6 +2,7 @@
 #include "TwoWay_List.h"
 #include "SingleList.h"
 #include "ListStack.h"
+#include "CircleQueue.h"
 void MakeTwList(){
 	TwNODE *head = CreateTwListHead();
 	InitTwList(head, 5);
@@ -43,7 +44,22 @@ void MakeListStack(){
 
 }
 
+void MakeCircleQueue(){
+	CIRQueue* queue = InitQueue();
+	for (size_t i = 0; i < 4; i++)
+	{
+		EnQueue(queue, i);
+	}
+	printf("out:%d\n", DeQueue(queue));
+	printf("out:%d\n", DeQueue(queue));
+	printf("out:%d\n", DeQueue(queue));
+	printf("out:%d\n", DeQueue(queue));
+	printf("out:%d\n", DeQueue(queue));
+	EnQueue(queue, 10);
+	ShowQueue(queue);
 
+	FreeQueue(queue);
+}
 
 
 /////////////////////////////////////////////////////////////////Ï°ÌâÄÚÈÝ
@@ -214,7 +230,10 @@ void main(){
 	//MakeSingleList();
 
 	//MakeListStack();
-	int result = 0;
-	testP79(&result);
-	printf("result:%d", result);
+
+	//int result = 0;
+	//testP79(&result);
+	//printf("result:%d", result);
+
+	MakeCircleQueue();
 }
