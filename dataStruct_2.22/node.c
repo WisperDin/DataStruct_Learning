@@ -3,6 +3,8 @@
 #include "SingleList.h"
 #include "ListStack.h"
 #include "CircleQueue.h"
+#include "Hashing.h"
+#include <stdlib.h>//用来生成随机数
 void MakeTwList(){
 	TwNODE *head = CreateTwListHead();
 	InitTwList(head, 5);
@@ -61,7 +63,27 @@ void MakeCircleQueue(){
 	FreeQueue(queue);
 }
 
-
+void MakeHashTable(){
+	int tableSize = 10;
+	HashTable* hashTab = InitHashTable(tableSize);
+	//srand((unsigned int)time(0));
+	int pos;//其实不需要这个参
+	for (size_t i = 10; i < 20; i++)
+	{
+		pos = -1;
+		InsertHashing(i, hashTab, &pos);
+	}
+	pos = -1;
+	NODE* findNode = FindHashing(18, hashTab, &pos);
+	if (findNode!=NULL)
+	{
+		printf("find :%d", findNode->data);
+	}
+	else
+	{
+		printf("not find ");
+	}
+}
 /////////////////////////////////////////////////////////////////习题内容
 //数据结构严蔚敏P53 第二题
 //将单链表转换成循环链表
@@ -235,5 +257,7 @@ void main(){
 	//testP79(&result);
 	//printf("result:%d", result);
 
-	MakeCircleQueue();
+	//MakeCircleQueue();
+
+	MakeHashTable();
 }

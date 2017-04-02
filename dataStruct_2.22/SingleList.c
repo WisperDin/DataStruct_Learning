@@ -84,9 +84,9 @@ NODE* FindNode(NODE* head, int tarData){
 		printf("null head");
 		return NULL;
 	}
-	if (head->data <= 0)
+	if (head->data == 0)
 	{
-		printf("length = 0");
+		//printf("length = 0\n");
 		return NULL;
 	}
 	NODE* currentNode = head;
