@@ -30,6 +30,15 @@
     <ClInclude Include="SingleList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ListStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Hashing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dataStruct_2.22.c">
@@ -45,6 +54,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SingleList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ListStack.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleQueue.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Hashing.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
