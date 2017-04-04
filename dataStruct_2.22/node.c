@@ -4,6 +4,7 @@
 #include "ListStack.h"
 #include "CircleQueue.h"
 #include "Hashing.h"
+#include "BinaryHeap.h"
 #include <stdlib.h>//用来生成随机数
 void MakeTwList(){
 	TwNODE *head = CreateTwListHead();
@@ -83,6 +84,17 @@ void MakeHashTable(){
 	{
 		printf("not find ");
 	}
+}
+
+void MakeBinaryHeap(){
+	int maxSize = 10;
+	BinaryHeap* bh = InitBinaryHeap(maxSize);
+	srand((unsigned int)time(0));
+	for (size_t i = 0; i < maxSize; i++)
+	{
+		InsertBinaryHeap(rand() % 50, bh);//插入50内的随机数10个
+	}
+	printf("min:%d", DeleteMin(bh));
 }
 /////////////////////////////////////////////////////////////////习题内容
 //数据结构严蔚敏P53 第二题
@@ -259,5 +271,7 @@ void main(){
 
 	//MakeCircleQueue();
 
-	MakeHashTable();
+	//MakeHashTable();
+
+	MakeBinaryHeap();
 }
